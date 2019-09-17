@@ -20,7 +20,7 @@
                 <span class="span_sidenav" onclick="page('main_menu','stadistics'); closeNav('main_menu');">Stadistics</span>
                 <span class="span_sidenav" onclick="page('main_menu','schedules'); closeNav('main_menu');">Schedules</span>
                 <div class="line_menu"></div>
-                <span class="span_sidenav" onclick="page('main_menu',''); closeNav('main_menu');">About us</span>
+                <span class="span_sidenav" onclick="page('main_menu','about_us'); closeNav('main_menu');">About us</span>
                 <span class="span_sidenav" onclick="page('main_menu','logIn'); closeNav('main_menu');">Log out</span>
             </div>
             <div id="main_main_menu">
@@ -43,7 +43,7 @@
                 <span class="span_sidenav" onclick="page('schedules','main_menu'); closeNav('schedules');">Main menu</span>
                 <span class="span_sidenav" onclick="page('schedules','stadistics'); closeNav('schedules');">Stadistics</span>
                 <div class="line_menu"></div>
-                <span class="span_sidenav" onclick="page('schedules',''); closeNav('schedules');">About us</span>
+                <span class="span_sidenav" onclick="page('schedules','about_us'); closeNav('schedules');">About us</span>
                 <span class="span_sidenav" onclick="page('schedules','logIn'); closeNav('schedules');">Log out</span>
             </div>
             <div id="main_schedules">
@@ -70,6 +70,46 @@
             </div> 
         </section>
         <section id="stadistics" class="invisible section"></section> 
+        <section id="about_us" class="section invisible">
+            <div id="mySidenav_about_us" class="sidenav">
+                <img src="img/icon white.png" id="menu-icon" alt="logo-white">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav('about_us')">&times;</a>
+                <div class="line_menu"></div>
+                <span class="span_sidenav" onclick="page('about_us','main_menu'); closeNav('about_us');">Main menu</span>
+                <span class="span_sidenav" onclick="page('about_us','stadistics'); closeNav('about_us');">Stadistics</span>
+                <span class="span_sidenav" onclick="page('about_us','schedules'); closeNav('about_us');">Schedules</span>
+                <div class="line_menu"></div>                
+                <span class="span_sidenav" onclick="page('about_us','logIn'); closeNav('about_us');">Log out</span>
+            </div>
+            <div id="main_about_us">
+                <img src="img/logo.png" id="logo_about" alt="icon">
+                <div class="div_span_about_us">
+                    <span class="span_about_us_title">Develop team</span>
+                </div>
+                <div class="div_span_index">
+                    <span class="span_about_us">Carlos Fernando Arango Ramírez</span>
+                </div>
+                <div class="div_span_index">
+                    <span class="span_about_us">Luis Felipe López Torres</span>
+                </div>
+                <div class="div_span_index">
+                    <span class="span_about_us">Juan David Góez Yepes</span>
+                </div>
+                <div class="div_span_index">
+                    <span class="span_about_us">Andrés Felipe Quintero Salazar</span>
+                </div>
+                <div class="div_span_about_us_bottom">
+                    <span class="span_about_us">Universidad Pontificia Bolivariana</span>
+                </div>
+                <div class="div_span_index">
+                        <span class="span_about_us">Medellín</span>
+                    </div>
+                <div class="div_span_index">
+                    <span class="span_about_us">2019</span>
+                </div>
+                <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('about_us');" alt="Menu">
+            </div> 
+        </section>
         <script src="js/main.js"></script>
     </body>
 </html>

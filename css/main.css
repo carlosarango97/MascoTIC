@@ -56,7 +56,25 @@ html,body{
     margin-top: 20%;
 }
 
+#logo_about{
+    width: 100%;
+    padding: 6% 0% 3% 0%;
+}
+
 .span_index{
+    font-family: Lato;
+    font-size: 130%;
+}
+
+.div_span_about_us{
+    margin-bottom: 10%;
+}
+
+.div_span_about_us_bottom{
+    margin-top: 18%;
+}
+
+.span_about_us{
     font-family: Lato;
     font-size: 130%;
 }
@@ -67,6 +85,11 @@ html,body{
 }
 
 .span_title_schedules{
+    font-family: "Lato bold";
+    font-size: 165%;
+}
+
+.span_about_us_title{
     font-family: "Lato bold";
     font-size: 165%;
 }
