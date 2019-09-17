@@ -5,13 +5,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>MascoTIC</title>
+        <link rel="StyleSheet" href="css/main.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
-        <section id="logIn"></section>
-        <section id="logUp"></section>
-        <section id="recoveryAccount"></section>
-        <section id="main_menu"></section>
-        <section id="schedules"></section>
-        <section id="stadistics"></section> 
+        <section id="logIn" class="invisible"></section>
+        <section id="logUp" class="invisible"></section>
+        <section id="recoveryAccount" class="invisible"></section>
+        <section id="main_menu">            
+            <div id="mySidenav" class="sidenav">
+                <img src="img/icon white.png" id="menu-icon" alt="logo-white">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <span class="span_sidenav" onclick="page('main_menu','stadistics');">Stadistics</span>
+                <span class="span_sidenav" onclick="page('main_menu','schedules');">Schedules</span>
+                <span class="span_sidenav" onclick="page('main_menu','');">About us</span>
+                <span class="span_sidenav" onclick="page('main_menu','logIn');">Log out</span>
+            </div>
+            <div id="main">
+                <img src="img/logo.png" id="logo_index" alt="icon">
+                <div class="div_span_index">
+                    <span class="span_index">In this moment your feeder has: 15.4gr</span>
+                </div>
+                <div class="div_span_index">
+                    <span class="span_index">Last food:   Today at 08:00</span>
+                </div>
+                <button type="button" class="btn btnFeed btn-secondary">Feed</button>
+                <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav();" alt="Menu">
+            </div> 
+        </section>
+        <section id="schedules" class="invisible"></section>
+        <section id="stadistics" class="invisible"></section> 
+        <script src="js/main.js"></script>
     </body>
 </html>
