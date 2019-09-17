@@ -12,16 +12,18 @@
         <section id="logIn" class="invisible"></section>
         <section id="logUp" class="invisible"></section>
         <section id="recoveryAccount" class="invisible"></section>
-        <section id="main_menu">            
-            <div id="mySidenav" class="sidenav">
+        <section id="main_menu" class="section">
+            <div id="mySidenav_main_menu" class="sidenav">
                 <img src="img/icon white.png" id="menu-icon" alt="logo-white">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <span class="span_sidenav" onclick="page('main_menu','stadistics');">Stadistics</span>
-                <span class="span_sidenav" onclick="page('main_menu','schedules');">Schedules</span>
-                <span class="span_sidenav" onclick="page('main_menu','');">About us</span>
-                <span class="span_sidenav" onclick="page('main_menu','logIn');">Log out</span>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav('main_menu')">&times;</a>
+                <div class="line_menu"></div>
+                <span class="span_sidenav" onclick="page('main_menu','stadistics'); closeNav('main_menu');">Stadistics</span>
+                <span class="span_sidenav" onclick="page('main_menu','schedules'); closeNav('main_menu');">Schedules</span>
+                <div class="line_menu"></div>
+                <span class="span_sidenav" onclick="page('main_menu',''); closeNav('main_menu');">About us</span>
+                <span class="span_sidenav" onclick="page('main_menu','logIn'); closeNav('main_menu');">Log out</span>
             </div>
-            <div id="main">
+            <div id="main_main_menu">
                 <img src="img/logo.png" id="logo_index" alt="icon">
                 <div class="div_span_index">
                     <span class="span_index">In this moment your feeder has: 15.4gr</span>
@@ -30,11 +32,44 @@
                     <span class="span_index">Last food:   Today at 08:00</span>
                 </div>
                 <button type="button" class="btn btnFeed btn-secondary">Feed</button>
-                <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav();" alt="Menu">
+                <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('main_menu');" alt="Menu">
             </div> 
         </section>
-        <section id="schedules" class="invisible"></section>
-        <section id="stadistics" class="invisible"></section> 
+        <section id="schedules" class="section invisible">
+            <div id="mySidenav_schedules" class="sidenav">
+                <img src="img/icon white.png" id="menu-icon" alt="logo-white">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav('schedules')">&times;</a>
+                <div class="line_menu"></div>
+                <span class="span_sidenav" onclick="page('schedules','main_menu'); closeNav('schedules');">Main menu</span>
+                <span class="span_sidenav" onclick="page('schedules','stadistics'); closeNav('schedules');">Stadistics</span>
+                <div class="line_menu"></div>
+                <span class="span_sidenav" onclick="page('schedules',''); closeNav('schedules');">About us</span>
+                <span class="span_sidenav" onclick="page('schedules','logIn'); closeNav('schedules');">Log out</span>
+            </div>
+            <div id="main_schedules">
+                <img src="img/logo.png" id="logo_schedules" alt="icon">
+                <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('schedules');" alt="Menu">
+                <span class="span_title_schedules">Feeding schedules</span>
+                <div class="div_top_schedules div_span_schedules">
+                    <img src="img/deleteBtn.png" alt="delete" class="deleteBtn">
+                    <span class="span_schedules">08:00 - 20gr</span>
+                </div>
+                <div class="div_span_schedules">
+                    <img src="img/deleteBtn.png" alt="delete" class="deleteBtn">
+                    <span class="span_schedules">12:00 - 10gr</span>
+                </div>
+                <div class="div_span_schedules">
+                    <img src="img/deleteBtn.png" alt="delete" class="deleteBtn">
+                    <span class="span_schedules">18:00 - 20gr</span>
+                </div>
+                <div class="line_schedule"> </div>
+                <div class="add_div div_span_schedules">
+                    <img src="img/addBtn.png" alt="add" class="deleteBtn">
+                    <span class="span_schedules">Add other schedule</span>
+                </div>
+            </div> 
+        </section>
+        <section id="stadistics" class="invisible section"></section> 
         <script src="js/main.js"></script>
     </body>
 </html>

@@ -10,15 +10,33 @@ html,body{
     padding-top: 32%;
 }
 
+#logo_schedules{
+    width: 100%;
+    padding-top: 10%;
+}
+
 #menu-icon{
     width: 74%;
     margin-bottom: 17%;
 }
 
-#main_menu{
+.section{
     width: 100%;
     height: 100%;
     text-align: center;
+}
+
+.div_top_schedules{
+    margin-top:8%;
+}
+
+.add_div{
+    margin-top: 2%;
+}
+
+.deleteBtn{
+    width: 5%;
+    margin-top: -2%;
 }
 
 #btnMenu{
@@ -43,12 +61,40 @@ html,body{
     font-size: 130%;
 }
 
+.span_schedules{
+    font-family: Lato;
+    font-size: 130%;
+}
+
+.span_title_schedules{
+    font-family: "Lato bold";
+    font-size: 165%;
+}
+
+.div_span_schedules{
+    margin-bottom: 2%;
+}
+
 .div_span_index{
     margin-bottom: 2%;
 }
 
 .invisible{
     display: none !important;
+}
+
+.line_menu{
+    width: 100%;
+    height: 0.5%;
+    background-color: #818181;
+}
+
+.line_schedule{
+    width: 70%;
+    font-size: 23%;
+    background-color: #818181;
+    white-space: pre-wrap;
+    margin-left: 15%;
 }
 
 @font-face{
@@ -101,7 +147,7 @@ html,body{
   
 
   /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-  #main {
+  #main_main_menu #main_schedules #main_stadistics {
     transition: margin-left .5s;
     padding: 20px;
   }
