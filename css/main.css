@@ -10,11 +10,29 @@ html,body{
     padding-top: 32%;
 }
 
+.form-check {
+    width: 50%;
+    text-align: left;
+    margin-left: 39%;
+}
+
+.radio-top{    
+    margin-top: 9%;
+}
+
+input[type=radio] {
+    border: 0px;
+    width: 10%;
+    margin-top: -2%;
+    margin-left: -13%;
+    height: 2em;
+}
+
 #stadistics_graph{
-    width: 80% !important;
+    width: 90% !important;
     height: 27% !important;
     background-color: white;
-    margin-left: 10%;
+    margin-left: 5%;
 }
 
 #logo_schedules{
@@ -78,12 +96,12 @@ html,body{
 }
 
 .div_span_about_us_bottom{
-    margin-top: 18%;
+    margin-top: 12%;
 }
 
 .span_about_us{
     font-family: Lato;
-    font-size: 130%;
+    font-size: 120%;
 }
 
 .span_schedules{
