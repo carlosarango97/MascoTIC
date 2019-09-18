@@ -10,6 +10,13 @@ html,body{
     padding-top: 32%;
 }
 
+#stadistics_graph{
+    width: 80% !important;
+    height: 27% !important;
+    background-color: white;
+    margin-left: 10%;
+}
+
 #logo_schedules{
     width: 100%;
     padding-top: 10%;

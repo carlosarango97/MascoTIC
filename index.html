@@ -69,7 +69,23 @@
                 </div>
             </div> 
         </section>
-        <section id="stadistics" class="invisible section"></section> 
+        <section id="stadistics" class="section invisible">            
+            <div id="mySidenav_stadistics" class="sidenav">
+                <img src="img/icon white.png" id="menu-icon" alt="logo-white">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav('stadistics')">&times;</a>
+                <div class="line_menu"></div>
+                <span class="span_sidenav" onclick="page('stadistics','main_menu'); closeNav('stadistics');">Main menu</span>
+                <span class="span_sidenav" onclick="page('stadistics','schedules'); closeNav('stadistics');">Schedules</span>
+                <div class="line_menu"></div>
+                <span class="span_sidenav" onclick="page('stadistics','about_us'); closeNav('stadistics');">About us</span>
+                <span class="span_sidenav" onclick="page('stadistics','logIn'); closeNav('stadistics');">Log out</span>
+            </div>
+            <div id="main_stadistics">
+                <img src="img/logo.png" id="logo_schedules" alt="icon">
+                <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('stadistics');" alt="Menu">
+                <canvas id="stadistics_graph"></canvas>
+            </div> 
+        </section> 
         <section id="about_us" class="section invisible">
             <div id="mySidenav_about_us" class="sidenav">
                 <img src="img/icon white.png" id="menu-icon" alt="logo-white">
@@ -110,6 +126,10 @@
                 <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('about_us');" alt="Menu">
             </div> 
         </section>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
         <script src="js/main.js"></script>
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
     </body>
 </html>
