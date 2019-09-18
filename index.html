@@ -1,135 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>MascoTIC</title>
-        <link rel="StyleSheet" href="css/main.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
-    <body>
-        <section id="logIn" class="invisible"></section>
-        <section id="logUp" class="invisible"></section>
-        <section id="recoveryAccount" class="invisible"></section>
-        <section id="main_menu" class="section">
-            <div id="mySidenav_main_menu" class="sidenav">
-                <img src="img/icon white.png" id="menu-icon" alt="logo-white">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav('main_menu')">&times;</a>
-                <div class="line_menu"></div>
-                <span class="span_sidenav" onclick="page('main_menu','stadistics'); closeNav('main_menu');">Stadistics</span>
-                <span class="span_sidenav" onclick="page('main_menu','schedules'); closeNav('main_menu');">Schedules</span>
-                <div class="line_menu"></div>
-                <span class="span_sidenav" onclick="page('main_menu','about_us'); closeNav('main_menu');">About us</span>
-                <span class="span_sidenav" onclick="page('main_menu','logIn'); closeNav('main_menu');">Log out</span>
-            </div>
-            <div id="main_main_menu">
-                <img src="img/logo.png" id="logo_index" alt="icon">
-                <div class="div_span_index">
-                    <span class="span_index">In this moment your feeder has: 15.4gr</span>
-                </div>
-                <div class="div_span_index">
-                    <span class="span_index">Last food:   Today at 08:00</span>
-                </div>
-                <button type="button" class="btn btnFeed btn-secondary">Feed</button>
-                <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('main_menu');" alt="Menu">
-            </div> 
-        </section>
-        <section id="schedules" class="section invisible">
-            <div id="mySidenav_schedules" class="sidenav">
-                <img src="img/icon white.png" id="menu-icon" alt="logo-white">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav('schedules')">&times;</a>
-                <div class="line_menu"></div>
-                <span class="span_sidenav" onclick="page('schedules','main_menu'); closeNav('schedules');">Main menu</span>
-                <span class="span_sidenav" onclick="page('schedules','stadistics'); closeNav('schedules');">Stadistics</span>
-                <div class="line_menu"></div>
-                <span class="span_sidenav" onclick="page('schedules','about_us'); closeNav('schedules');">About us</span>
-                <span class="span_sidenav" onclick="page('schedules','logIn'); closeNav('schedules');">Log out</span>
-            </div>
-            <div id="main_schedules">
-                <img src="img/logo.png" id="logo_schedules" alt="icon">
-                <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('schedules');" alt="Menu">
-                <span class="span_title_schedules">Feeding schedules</span>
-                <div class="div_top_schedules div_span_schedules">
-                    <img src="img/deleteBtn.png" alt="delete" class="deleteBtn">
-                    <span class="span_schedules">08:00 - 20gr</span>
-                </div>
-                <div class="div_span_schedules">
-                    <img src="img/deleteBtn.png" alt="delete" class="deleteBtn">
-                    <span class="span_schedules">12:00 - 10gr</span>
-                </div>
-                <div class="div_span_schedules">
-                    <img src="img/deleteBtn.png" alt="delete" class="deleteBtn">
-                    <span class="span_schedules">18:00 - 20gr</span>
-                </div>
-                <div class="line_schedule"> </div>
-                <div class="add_div div_span_schedules">
-                    <img src="img/addBtn.png" alt="add" class="deleteBtn">
-                    <span class="span_schedules">Add other schedule</span>
-                </div>
-            </div> 
-        </section>
-        <section id="stadistics" class="section invisible">            
-            <div id="mySidenav_stadistics" class="sidenav">
-                <img src="img/icon white.png" id="menu-icon" alt="logo-white">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav('stadistics')">&times;</a>
-                <div class="line_menu"></div>
-                <span class="span_sidenav" onclick="page('stadistics','main_menu'); closeNav('stadistics');">Main menu</span>
-                <span class="span_sidenav" onclick="page('stadistics','schedules'); closeNav('stadistics');">Schedules</span>
-                <div class="line_menu"></div>
-                <span class="span_sidenav" onclick="page('stadistics','about_us'); closeNav('stadistics');">About us</span>
-                <span class="span_sidenav" onclick="page('stadistics','logIn'); closeNav('stadistics');">Log out</span>
-            </div>
-            <div id="main_stadistics">
-                <img src="img/logo.png" id="logo_schedules" alt="icon">
-                <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('stadistics');" alt="Menu">
-                <canvas id="stadistics_graph"></canvas>
-            </div> 
-        </section> 
-        <section id="about_us" class="section invisible">
-            <div id="mySidenav_about_us" class="sidenav">
-                <img src="img/icon white.png" id="menu-icon" alt="logo-white">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav('about_us')">&times;</a>
-                <div class="line_menu"></div>
-                <span class="span_sidenav" onclick="page('about_us','main_menu'); closeNav('about_us');">Main menu</span>
-                <span class="span_sidenav" onclick="page('about_us','stadistics'); closeNav('about_us');">Stadistics</span>
-                <span class="span_sidenav" onclick="page('about_us','schedules'); closeNav('about_us');">Schedules</span>
-                <div class="line_menu"></div>                
-                <span class="span_sidenav" onclick="page('about_us','logIn'); closeNav('about_us');">Log out</span>
-            </div>
-            <div id="main_about_us">
-                <img src="img/logo.png" id="logo_about" alt="icon">
-                <div class="div_span_about_us">
-                    <span class="span_about_us_title">Develop team</span>
-                </div>
-                <div class="div_span_index">
-                    <span class="span_about_us">Carlos Fernando Arango Ramírez</span>
-                </div>
-                <div class="div_span_index">
-                    <span class="span_about_us">Luis Felipe López Torres</span>
-                </div>
-                <div class="div_span_index">
-                    <span class="span_about_us">Juan David Góez Yepes</span>
-                </div>
-                <div class="div_span_index">
-                    <span class="span_about_us">Andrés Felipe Quintero Salazar</span>
-                </div>
-                <div class="div_span_about_us_bottom">
-                    <span class="span_about_us">Universidad Pontificia Bolivariana</span>
-                </div>
-                <div class="div_span_index">
-                        <span class="span_about_us">Medellín</span>
-                    </div>
-                <div class="div_span_index">
-                    <span class="span_about_us">2019</span>
-                </div>
-                <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('about_us');" alt="Menu">
-            </div> 
-        </section>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-        <script src="js/main.js"></script>
-        
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MascoTIC</title>
+    <link rel="StyleSheet" href="css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <section id="logIn" class="section invisible">
+        <div id="main_logIn">
+            <img src="img/logo.png" id="logo_login" alt="icon">
+            </br>
+            <input type="text" id="input_Login" placeholder="Username">
+            </br>
+            </br>
+            <input type="password" id="input_Login" placeholder="Password">
+            </br>
+            </br>
+            </br>
+            <button id="button_Login" onclick="page('logUp','main_menu');">Login</button>
+            </br>
+            </br>
+            <a>¿Don't you have an account?</a><a id="a_Login" onclick="page('logIn','logUp');"> Sign up!</a>
+            <br>
+            <a id="a_Login" onclick="page('logIn','recoveryAccount');">Recover my account</a>
+        </div>
+    </section>
+
+    <section id="logUp" class="section invisible">
+        <div id="main_logUp">
+            <img src="img/logo.png" id="logo_logUp" alt="icon">
+            </br>
+            <input type="text" id="input_LogUp" placeholder="Username">
+            </br>
+            </br>
+            <input type="password" id="input_LogUp" placeholder="Password">
+            </br>
+            </br>
+            <input type="password" id="input_LogUp" placeholder="Confirm password">
+            </br>
+            </br>
+            <input type="password" id="input_LogUp" placeholder="Email">
+            </br>
+            </br>
+            <input type="password" id="input_LogUp" placeholder="Device ID">
+            </br>
+            </br>
+            <button id="button_LogUp" onclick="page('logUp','logIn');">Sign up</button>
+        </div>
+    </section>
+
+    <section id="recoveryAccount" class="section">
+        <div id="main_recoveryAccount">
+            <img src="img/logo.png" id="logo_recoveryAccount" alt="icon">
+            </br>
+            <input type="text" id="input_recoveryAccount" placeholder="Username">
+            </br>
+            </br>
+            <input type="text" id="input_recoveryAccount" placeholder="Email">
+            </br>
+            </br>
+            <button id="button_recoveryAccount" onclick="page('recoveryAccount','logIn');">Submit</button>
+        </div>
+    </section>
+
+    <section id="main_menu" class="section invisible">
+        <div id="mySidenav_main_menu" class="sidenav">
+            <img src="img/icon white.png" id="menu-icon" alt="logo-white">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav('main_menu')">&times;</a>
+            <div class="line_menu"></div>
+            <span class="span_sidenav"
+                onclick="page('main_menu','stadistics'); closeNav('main_menu');">Stadistics</span>
+            <span class="span_sidenav" onclick="page('main_menu','schedules'); closeNav('main_menu');">Schedules</span>
+            <div class="line_menu"></div>
+            <span class="span_sidenav" onclick="page('main_menu','about_us'); closeNav('main_menu');">About us</span>
+            <span class="span_sidenav" onclick="page('main_menu','logIn'); closeNav('main_menu');">Log out</span>
+        </div>
+        <div id="main_main_menu">
+            <img src="img/logo.png" id="logo_index" alt="icon">
+            <div class="div_span_index">
+                <span class="span_index">In this moment your feeder has: 15.4gr</span>
+            </div>
+            <div class="div_span_index">
+                <span class="span_index">Last food: Today at 08:00</span>
+            </div>
+            <button type="button" class="btn btnFeed btn-secondary">Feed</button>
+            <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('main_menu');" alt="Menu">
+        </div>
+    </section>
+
+    <section id="schedules" class="section invisible">
+        <div id="mySidenav_schedules" class="sidenav">
+            <img src="img/icon white.png" id="menu-icon" alt="logo-white">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav('schedules')">&times;</a>
+            <div class="line_menu"></div>
+            <span class="span_sidenav" onclick="page('schedules','main_menu'); closeNav('schedules');">Main menu</span>
+            <span class="span_sidenav"
+                onclick="page('schedules','stadistics'); closeNav('schedules');">Stadistics</span>
+            <div class="line_menu"></div>
+            <span class="span_sidenav" onclick="page('schedules','about_us'); closeNav('schedules');">About us</span>
+            <span class="span_sidenav" onclick="page('schedules','logIn'); closeNav('schedules');">Log out</span>
+        </div>
+        <div id="main_schedules">
+            <img src="img/logo.png" id="logo_schedules" alt="icon">
+            <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('schedules');" alt="Menu">
+            <span class="span_title_schedules">Feeding schedules</span>
+            <div class="div_top_schedules div_span_schedules">
+                <img src="img/deleteBtn.png" alt="delete" class="deleteBtn">
+                <span class="span_schedules">08:00 - 20gr</span>
+            </div>
+            <div class="div_span_schedules">
+                <img src="img/deleteBtn.png" alt="delete" class="deleteBtn">
+                <span class="span_schedules">12:00 - 10gr</span>
+            </div>
+            <div class="div_span_schedules">
+                <img src="img/deleteBtn.png" alt="delete" class="deleteBtn">
+                <span class="span_schedules">18:00 - 20gr</span>
+            </div>
+            <div class="line_schedule"> </div>
+            <div class="add_div div_span_schedules">
+                <img src="img/addBtn.png" alt="add" class="deleteBtn">
+                <span class="span_schedules">Add other schedule</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="stadistics" class="section invisible">
+        <div id="mySidenav_stadistics" class="sidenav">
+            <img src="img/icon white.png" id="menu-icon" alt="logo-white">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav('stadistics')">&times;</a>
+            <div class="line_menu"></div>
+            <span class="span_sidenav" onclick="page('stadistics','main_menu'); closeNav('stadistics');">Main
+                menu</span>
+            <span class="span_sidenav"
+                onclick="page('stadistics','schedules'); closeNav('stadistics');">Schedules</span>
+            <div class="line_menu"></div>
+            <span class="span_sidenav" onclick="page('stadistics','about_us'); closeNav('stadistics');">About us</span>
+            <span class="span_sidenav" onclick="page('stadistics','logIn'); closeNav('stadistics');">Log out</span>
+        </div>
+        <div id="main_stadistics">
+            <img src="img/logo.png" id="logo_schedules" alt="icon">
+            <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('stadistics');" alt="Menu">
+            <canvas id="stadistics_graph"></canvas>
+        </div>
+    </section>
+
+    <section id="about_us" class="section invisible">
+        <div id="mySidenav_about_us" class="sidenav">
+            <img src="img/icon white.png" id="menu-icon" alt="logo-white">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav('about_us')">&times;</a>
+            <div class="line_menu"></div>
+            <span class="span_sidenav" onclick="page('about_us','main_menu'); closeNav('about_us');">Main menu</span>
+            <span class="span_sidenav" onclick="page('about_us','stadistics'); closeNav('about_us');">Stadistics</span>
+            <span class="span_sidenav" onclick="page('about_us','schedules'); closeNav('about_us');">Schedules</span>
+            <div class="line_menu"></div>
+            <span class="span_sidenav" onclick="page('about_us','logIn'); closeNav('about_us');">Log out</span>
+        </div>
+        <div id="main_about_us">
+            <img src="img/logo.png" id="logo_about" alt="icon">
+            <div class="div_span_about_us">
+                <span class="span_about_us_title">Develop team</span>
+            </div>
+            <div class="div_span_index">
+                <span class="span_about_us">Carlos Fernando Arango Ramírez</span>
+            </div>
+            <div class="div_span_index">
+                <span class="span_about_us">Luis Felipe López Torres</span>
+            </div>
+            <div class="div_span_index">
+                <span class="span_about_us">Juan David Góez Yepes</span>
+            </div>
+            <div class="div_span_index">
+                <span class="span_about_us">Andrés Felipe Quintero Salazar</span>
+            </div>
+            <div class="div_span_about_us_bottom">
+                <span class="span_about_us">Universidad Pontificia Bolivariana</span>
+            </div>
+            <div class="div_span_index">
+                <span class="span_about_us">Medellín</span>
+            </div>
+            <div class="div_span_index">
+                <span class="span_about_us">2019</span>
+            </div>
+            <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('about_us');" alt="Menu">
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="js/main.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+</body>
+
 </html>

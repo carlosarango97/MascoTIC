@@ -173,11 +173,10 @@ html,body{
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-  }
-  
+  }  
 
   /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-  #main_main_menu #main_schedules #main_stadistics {
+  #main_main_menu #main_schedules #main_stadistics #main_logIn{
     transition: margin-left .5s;
     padding: 20px;
   }
@@ -187,3 +186,89 @@ html,body{
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   } 
+
+#logo_login{
+    width: 100%;
+    padding-top: 32%;
+}
+
+#input_Login{
+    border: none;
+    border-bottom: solid gray 2px;
+    color: gray;
+    background-color: transparent;
+    font-size: 25px;
+    font-family: "Lato";
+    cursor: pointer;
+}
+
+#button_Login{
+    width: 115px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #5c5c5c;
+    font-size: 25px;
+    font-family: "Lato";
+    cursor: pointer;
+    color: white;
+}
+
+#a_Login{
+    color: #4a74ff;
+    text-decoration: underline; 
+}
+
+#logo_logUp{
+    width: 100%;
+    padding-top: 10%;
+}
+
+#input_LogUp{
+    border: none;
+    border-bottom: solid gray 2px;
+    color: gray;
+    background-color: transparent;
+    font-size: 25px;
+    font-family: "Lato";
+    cursor: pointer;
+}
+
+#button_LogUp{
+    width: 115px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #5c5c5c;
+    font-size: 25px;
+    font-family: "Lato";
+    cursor: pointer;
+    color: white;
+}
+
+#logo_recoveryAccount{
+    width: 100%;
+    padding-top: 30%;
+}
+
+#input_recoveryAccount{
+    border: none;
+    border-bottom: solid gray 2px;
+    color: gray;
+    background-color: transparent;
+    font-size: 25px;
+    font-family: "Lato";
+    cursor: pointer;
+}
+
+#button_recoveryAccount{
+    width: 115px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #5c5c5c;
+    font-size: 25px;
+    font-family: "Lato";
+    cursor: pointer;
+    color: white;
+}
