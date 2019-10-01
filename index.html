@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>    
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-storage.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#config-web-app -->
     <script>
@@ -54,22 +58,22 @@
         <div id="main_logUp">
             <img src="img/logo.png" id="logo_logUp" alt="icon">
             </br>
-            <input type="text" id="input_LogUp" placeholder="Username">
+            <input type="text" id="user_LogUp" placeholder="Username">
             </br>
             </br>
-            <input type="password" id="input_LogUp" placeholder="Password">
+            <input type="password" id="password1_LogUp" placeholder="Password">
             </br>
             </br>
-            <input type="password" id="input_LogUp" placeholder="Confirm password">
+            <input type="password" id="password2_LogUp" placeholder="Confirm password">
             </br>
             </br>
-            <input type="password" id="input_LogUp" placeholder="Email">
+            <input type="text" id="email_LogUp" placeholder="Email">
             </br>
             </br>
-            <input type="password" id="input_LogUp" placeholder="Device ID">
+            <input type="text" id="device_id_LogUp" placeholder="Device ID">
             </br>
             </br>
-            <button id="button_LogUp" onclick="page('logUp','logIn');">Sign up</button>
+            <button id="button_LogUp" onclick="signUp();">Sign up</button>
         </div>
     </section>
 
@@ -223,8 +227,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="js/main.js"></script>
-
-
+    <script src="js/auth.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
 </body>
 
