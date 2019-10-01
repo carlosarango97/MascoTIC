@@ -84,3 +84,11 @@ function logOut(){
     auth.signOut();
     page('main_menu','logIn');
 }
+
+function passwordRecovery() {
+    const email = document.getElementById("input_recoveryAccount").value;
+    document.getElementById("input_recoveryAccount").value = "";
+    console.log(firebase.auth().sendPasswordResetEmail(email));    
+    page('recoveryAccount','logIn');
+    return false;
+}
