@@ -35,6 +35,13 @@ input[type=radio] {
     margin-left: 5%;
 }
 
+#back{
+    width: 16%;
+    position: fixed;
+    top: 3%;
+    left: 5%;
+}
+
 #logo_schedules{
     width: 100%;
     padding-top: 10%;
