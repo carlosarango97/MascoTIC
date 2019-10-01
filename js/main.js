@@ -68,3 +68,13 @@ var stadistics = new Chart(ctx, {
         }
     }
 });
+
+function btnLook(id, span) {
+    if (document.getElementById(id).type == "password") {
+        document.getElementById(id).type = "text";
+        document.getElementById(span).src = "img/noLook.png";
+    } else {
+        document.getElementById(id).type = "password";
+        document.getElementById(span).src = "img/look.png";
+    }
+}

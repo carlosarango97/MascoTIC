@@ -35,6 +35,10 @@ input[type=radio] {
     margin-left: 5%;
 }
 
+#password_Login{
+    margin-left: 12%;
+}
+
 #back{
     width: 16%;
     position: fixed;
@@ -64,6 +68,10 @@ input[type=radio] {
 
 .add_div{
     margin-top: 2%;
+}
+
+.password_logUp{
+    margin-left: 11%;
 }
 
 .deleteBtn{
@@ -114,6 +122,10 @@ input[type=radio] {
 .span_schedules{
     font-family: Lato;
     font-size: 130%;
+}
+
+.btnLook{
+    width: 10%;
 }
 
 .span_title_schedules{
