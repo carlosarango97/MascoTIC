@@ -52,3 +52,30 @@ function signUp() {
     }
 
 }
+
+function signIn() {
+
+    // Get user info
+    var email = document.getElementById("email_Login").value.toLowerCase();
+    const password = document.getElementById("password_Login").value;
+
+
+    // Sing up the user
+
+    auth.signInWithEmailAndPassword(email, password).then(function (data) {
+        const userUid = email;
+        if (data.user.emailVerified) {
+            document.getElementById("email_Login").value = "";
+            document.getElementById("password_Login").value = "";
+            page('logIn','main_menu');
+        } else {
+            alert("Verify your email!");
+        }
+
+    }).catch(function (error) {
+        console.log(error.message);
+        alert("The user or password isn't correct! :(");
+
+    });
+    return false;
+}
