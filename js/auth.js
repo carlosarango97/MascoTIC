@@ -3,18 +3,17 @@ const db=firebase['firestore']();
 const storage=firebase['storage']();
 
 function signUp() {
-    // Get user info Form
+    // Get user info Form    
+    charge(true);
     const email = document.getElementById("email_LogUp").value;
     const username = document.getElementById("user_LogUp").value;
     const password1 = document.getElementById("password1_LogUp").value;
     const password2 = document.getElementById("password2_LogUp").value;
     const deviceId = document.getElementById("device_id_LogUp").value;
-
     var emailUser = email.toLowerCase();
     if (password1 === password2) {
         // Sing up the user
         auth.createUserWithEmailAndPassword(email, password1).then(function (data) {
-
             const userUid = data.user.uid;
             var account = null;
             // Set account  doc  
@@ -28,7 +27,7 @@ function signUp() {
             }).catch(function (error) {
                 console.error("Error: ", error);
             });
-
+            charge(false);
             alert("User was created!");            
             document.getElementById("email_LogUp").value = "";
             document.getElementById("user_LogUp").value = "";
@@ -44,11 +43,13 @@ function signUp() {
                 var errorCode = error.code;
                 var errorMessage = error.message;
                 if (errorMessage === "The email address is already in use by another account.") {
+                    charge(false);
                     alert(errorMessage);
                 }
             });
     } else {
-        alert("The passwords are diferents!");
+        charge(false);
+        alert("The passwords are diferents!");        
     }
 
 }

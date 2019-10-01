@@ -78,3 +78,11 @@ function btnLook(id, span) {
         document.getElementById(span).src = "img/look.png";
     }
 }
+
+function charge(on){
+    if(!on){
+        document.getElementById("charge").className += " invisible";
+    }else{
+        document.getElementById("charge").classList.remove("invisible");
+    }
+}
