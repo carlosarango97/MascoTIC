@@ -2,10 +2,10 @@
 // This method has 2 parameters:
 //      pageOut: The section ID that you go out
 //      pageIn: The section ID that you go in
-function page(pageOut, pageIn){
+function page(pageOut, pageIn) {
     document.getElementById(pageOut).className += " invisible";
     document.getElementById(pageIn).classList.remove("invisible");
-    window.scroll(0,document.getElementById(pageIn).scrollTop);
+    window.scroll(0, document.getElementById(pageIn).scrollTop);
 }
 
 /* Set the width of the side navigation to 250px */
@@ -16,7 +16,7 @@ function openNav(section) {
 /* Set the width of the side navigation to 0 */
 function closeNav(section) {
     document.getElementById("mySidenav_" + section).style.width = "0";
-} 
+}
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav(section) {
@@ -28,7 +28,7 @@ function openNav(section) {
 function closeNav(section) {
     document.getElementById("mySidenav_" + section).style.width = "0";
     document.getElementById("main_" + section).style.marginLeft = "0";
-} 
+}
 
 // var Chart = require('chart.js');
 var ctx = document.getElementById('stadistics_graph').getContext('2d');
@@ -79,10 +79,44 @@ function btnLook(id, span) {
     }
 }
 
-function charge(on){
-    if(!on){
+function charge(on) {
+    if (!on) {
         document.getElementById("charge").className += " invisible";
-    }else{
+    } else {
         document.getElementById("charge").classList.remove("invisible");
     }
 }
+
+function addSchedul() {
+    document.getElementById('schedulesCards').innerHTML += 
+        `<div class="div_top_schedules div_span_schedules">
+            <img class="deleteBtn">
+            <span class="span_schedules">08:00 - 20gr</span>
+        </div>`;    
+}
+
+function addSchedule() {
+
+    var food = document.getElementById('food').value;
+    var time = document.getElementById('time').value;
+
+    var div = document.createElement("div");
+    
+    div.classList.add("div_top_schedules");
+    div.classList.add("div_span_schedules");    
+    div.appendChild(document.createTextNode(food+"gr"+" - "+time));
+	document.getElementById('schedulesCards').appendChild(div);
+
+    var imgDel = document.createElement("img");
+    
+	imgDel.classList.add("deleteBtn");
+	div.appendChild(imgDel);
+	imgDel.addEventListener("click", deleteListItem);
+
+	function deleteListItem() {
+		div.classList.add("invisible");
+    }
+    
+    document.getElementById('food').value = "";
+    document.getElementById('time').value = "";
+} 
