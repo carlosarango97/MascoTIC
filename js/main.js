@@ -2,10 +2,11 @@
 // This method has 2 parameters:
 //      pageOut: The section ID that you go out
 //      pageIn: The section ID that you go in
-function page(pageOut, pageIn){
-    document.getElementById(pageOut).className += " invisible";
-    document.getElementById(pageIn).classList.remove("invisible");
-    window.scroll(0,document.getElementById(pageIn).scrollTop);
+function page(idOut, idIn){
+    document.getElementById(idIn).classList.remove("out");
+    document.getElementById(idIn).classList.add("in");
+    document.getElementById(idOut).classList.add("out");
+    document.getElementById(idOut).classList.remove("in");
 }
 
 /* Set the width of the side navigation to 250px */
@@ -68,3 +69,10 @@ var stadistics = new Chart(ctx, {
         }
     }
 });
+
+function aparicion(idIn, idOut){
+    document.getElementById(idIn).classList.remove("out");
+    document.getElementById(idIn).classList.add("in");
+    document.getElementById(idOut).classList.add("out");
+    document.getElementById(idOut).classList.remove("in");
+}

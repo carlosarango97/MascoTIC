@@ -12,7 +12,32 @@
 </head>
 
 <body>
-    <section id="logIn" class="section">
+    <section id="main_menu" class="section">
+            <div id="mySidenav_main_menu" class="sidenav">
+                <img src="img/icon white.png" id="menu-icon" alt="logo-white">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav('main_menu')">&times;</a>
+                <div class="line_menu"></div>
+                <span class="span_sidenav"
+                    onclick="page('main_menu','stadistics'); closeNav('main_menu');">Stadistics</span>
+                <span class="span_sidenav" onclick="page('main_menu','schedules'); closeNav('main_menu');">Schedules</span>
+                <div class="line_menu"></div>
+                <span class="span_sidenav" onclick="page('main_menu','about_us'); closeNav('main_menu');">About us</span>
+                <span class="span_sidenav" onclick="page('main_menu','logIn'); closeNav('main_menu');">Log out</span>
+            </div>
+            <div id="main_main_menu">
+                <img src="img/logo.png" id="logo_index" alt="icon">
+                <div class="div_span_index">
+                    <span class="span_index">In this moment your feeder has: 15.4gr</span>
+                </div>
+                <div class="div_span_index">
+                    <span class="span_index">Last food: Today at 08:00</span>
+                </div>
+                <button type="button" class="btn btnFeed btn-secondary">Feed</button>
+                <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('main_menu');" alt="Menu">
+            </div>
+        </section>
+
+    <section id="logIn" class="section in">
         <div id="main_logIn">
             <img src="img/logo.png" id="logo_login" alt="icon">
             </br>
@@ -32,7 +57,7 @@
         </div>
     </section>
 
-    <section id="logUp" class="section invisible">
+    <section id="logUp" class="section">
         <div id="main_logUp">
             <img src="img/logo.png" id="logo_logUp" alt="icon">
             </br>
@@ -55,7 +80,7 @@
         </div>
     </section>
 
-    <section id="recoveryAccount" class="section invisible">
+    <section id="recoveryAccount" class="section">
         <div id="main_recoveryAccount">
             <img src="img/logo.png" id="logo_recoveryAccount" alt="icon">
             </br>
@@ -67,34 +92,9 @@
             </br>
             <button id="button_recoveryAccount" onclick="page('recoveryAccount','logIn');">Submit</button>
         </div>
-    </section>
+    </section>   
 
-    <section id="main_menu" class="section invisible">
-        <div id="mySidenav_main_menu" class="sidenav">
-            <img src="img/icon white.png" id="menu-icon" alt="logo-white">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav('main_menu')">&times;</a>
-            <div class="line_menu"></div>
-            <span class="span_sidenav"
-                onclick="page('main_menu','stadistics'); closeNav('main_menu');">Stadistics</span>
-            <span class="span_sidenav" onclick="page('main_menu','schedules'); closeNav('main_menu');">Schedules</span>
-            <div class="line_menu"></div>
-            <span class="span_sidenav" onclick="page('main_menu','about_us'); closeNav('main_menu');">About us</span>
-            <span class="span_sidenav" onclick="page('main_menu','logIn'); closeNav('main_menu');">Log out</span>
-        </div>
-        <div id="main_main_menu">
-            <img src="img/logo.png" id="logo_index" alt="icon">
-            <div class="div_span_index">
-                <span class="span_index">In this moment your feeder has: 15.4gr</span>
-            </div>
-            <div class="div_span_index">
-                <span class="span_index">Last food: Today at 08:00</span>
-            </div>
-            <button type="button" class="btn btnFeed btn-secondary">Feed</button>
-            <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('main_menu');" alt="Menu">
-        </div>
-    </section>
-
-    <section id="schedules" class="section invisible">
+    <section id="schedules" class="section">
         <div id="mySidenav_schedules" class="sidenav">
             <img src="img/icon white.png" id="menu-icon" alt="logo-white">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav('schedules')">&times;</a>
@@ -130,7 +130,7 @@
         </div>
     </section>
 
-    <section id="stadistics" class="section invisible">
+    <section id="stadistics" class="section">
         <div id="mySidenav_stadistics" class="sidenav">
             <img src="img/icon white.png" id="menu-icon" alt="logo-white">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav('stadistics')">&times;</a>
@@ -162,7 +162,7 @@
         </div>
     </section>
 
-    <section id="about_us" class="section invisible">
+    <section id="about_us" class="section">
         <div id="mySidenav_about_us" class="sidenav">
             <img src="img/icon white.png" id="menu-icon" alt="logo-white">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav('about_us')">&times;</a>

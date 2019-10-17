@@ -2,7 +2,7 @@ html,body{
     margin: 0;
     height: 100%;
     width: 100%;
-    background-color: #FCC4A7 !important;
+    background-color: #f7af8a !important;
 }
 
 #logo_index{
@@ -14,6 +14,27 @@ html,body{
     width: 50%;
     text-align: left;
     margin-left: 39%;
+}
+
+section{
+    position: fixed;
+    left: -140%;
+    top: 0%;
+    box-shadow: 2px 2px 31px black;
+}
+
+.in{
+    transition-property: left;
+    transition-duration: 2s;
+    left: 0% !important;
+    z-index: 2;
+}
+
+.out{
+    transition-property: left;
+    transition-duration: 3s;
+    left: -140% !important;
+    z-index: 1;
 }
 
 .radio-top{    
@@ -48,7 +69,8 @@ input[type=radio] {
 .section{
     width: 100%;
     height: 100%;
-    text-align: center;
+    text-align: center;    
+    background-color: #FCC4A7 !important;
 }
 
 .div_top_schedules{
@@ -65,7 +87,7 @@ input[type=radio] {
 }
 
 #btnMenu{
-    position: fixed;
+    position: absolute;
     top: 5%;
     right: 5%;
     width: 12%;
