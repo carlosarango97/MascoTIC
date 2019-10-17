@@ -57,6 +57,7 @@
     <section id="logUp" class="section">
         <div id="main_logUp">
             <img src="img/logo.png" id="logo_logUp" alt="icon">
+            <img src="img/backBtn.png" id="back" onclick="page('logUp','logIn');" alt="back">
             </br>
             <input type="text" id="user_LogUp" placeholder="Username">
             </br>
@@ -80,14 +81,12 @@
     <section id="recoveryAccount" class="section">
         <div id="main_recoveryAccount">
             <img src="img/logo.png" id="logo_recoveryAccount" alt="icon">
-            </br>
-            <input type="text" id="input_recoveryAccount" placeholder="Username">
-            </br>
+            <img src="img/backBtn.png" id="back" onclick="page('recoveryAccount','logIn');" alt="back">
             </br>
             <input type="text" id="input_recoveryAccount" placeholder="Email">
             </br>
             </br>
-            <button id="button_recoveryAccount" onclick="page('recoveryAccount','logIn');">Submit</button>
+            <button id="button_recoveryAccount" onclick="passwordRecovery();">Submit</button>
         </div>
     </section>
 
