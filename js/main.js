@@ -17,7 +17,7 @@ function openNav(section) {
 /* Set the width of the side navigation to 0 */
 function closeNav(section) {
     document.getElementById("mySidenav_" + section).style.width = "0";
-} 
+}
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav(section) {
@@ -29,7 +29,7 @@ function openNav(section) {
 function closeNav(section) {
     document.getElementById("mySidenav_" + section).style.width = "0";
     document.getElementById("main_" + section).style.marginLeft = "0";
-} 
+}
 
 // var Chart = require('chart.js');
 var ctx = document.getElementById('stadistics_graph').getContext('2d');
@@ -70,9 +70,54 @@ var stadistics = new Chart(ctx, {
     }
 });
 
-function aparicion(idIn, idOut){
-    document.getElementById(idIn).classList.remove("out");
-    document.getElementById(idIn).classList.add("in");
-    document.getElementById(idOut).classList.add("out");
-    document.getElementById(idOut).classList.remove("in");
+function btnLook(id, span) {
+    if (document.getElementById(id).type == "password") {
+        document.getElementById(id).type = "text";
+        document.getElementById(span).src = "img/noLook.png";
+    } else {
+        document.getElementById(id).type = "password";
+        document.getElementById(span).src = "img/look.png";
+    }
 }
+
+function charge(on) {
+    if (!on) {
+        document.getElementById("charge").className += " invisible";
+    } else {
+        document.getElementById("charge").classList.remove("invisible");
+    }
+}
+
+function addSchedul() {
+    document.getElementById('schedulesCards').innerHTML += 
+        `<div class="div_top_schedules div_span_schedules">
+            <img class="deleteBtn">
+            <span class="span_schedules">08:00 - 20gr</span>
+        </div>`;    
+}
+
+function addSchedule() {
+
+    var food = document.getElementById('food').value;
+    var time = document.getElementById('time').value;
+
+    var div = document.createElement("div");
+    
+    div.classList.add("div_top_schedules");
+    div.classList.add("div_span_schedules");    
+    div.appendChild(document.createTextNode(food+"gr"+" - "+time));
+	document.getElementById('schedulesCards').appendChild(div);
+
+    var imgDel = document.createElement("img");
+    
+	imgDel.classList.add("deleteBtn");
+	div.appendChild(imgDel);
+	imgDel.addEventListener("click", deleteListItem);
+
+	function deleteListItem() {
+		div.classList.add("invisible");
+    }
+    
+    document.getElementById('food').value = "";
+    document.getElementById('time').value = "";
+} 
