@@ -79,3 +79,8 @@ function signIn() {
     });
     return false;
 }
+
+function logOut(){
+    auth.signOut();
+    page('main_menu','logIn');
+}
