@@ -28,7 +28,22 @@ function openNav(section) {
 function closeNav(section) {
     document.getElementById("mySidenav_" + section).style.width = "0";
     document.getElementById("main_" + section).style.marginLeft = "0";
-} 
+}
+
+function send(){
+	const url = 'http://192.168.1.180'
+	const http = new XMLHttpRequest()
+
+	http.open("GET", url)
+	http.onreadystatechange = function(){
+
+		if(this.readyState == 4 && this.status == 200){
+			var resultado = JSON.parse(this.responseText)
+			console.log(resultado.name)
+		}
+	}
+	http.send()
+}	
 
 // var Chart = require('chart.js');
 var ctx = document.getElementById('stadistics_graph').getContext('2d');
