@@ -9,21 +9,44 @@
     <link rel="StyleSheet" href="css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#config-web-app -->
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBogjL5lQXeahGU-p84RWfTLoozmfDbMIE",
+            authDomain: "mascotic-3234b.firebaseapp.com",
+            databaseURL: "https://mascotic-3234b.firebaseio.com",
+            projectId: "mascotic-3234b",
+            storageBucket: "mascotic-3234b.appspot.com",
+            messagingSenderId: "29916424028",
+            appId: "1:29916424028:web:88f91714e12a14c1634399"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 
 <body>
-    <section id="logIn" class="section">
+    <section id="logIn" class="section in">
         <div id="main_logIn">
             <img src="img/logo.png" id="logo_login" alt="icon">
             </br>
-            <input type="text" id="input_Login" placeholder="Username">
+            <input type="text" id="email_Login" placeholder="Email">
             </br>
             </br>
-            <input type="password" id="input_Login" placeholder="Password">
+            <input type="password" id="password_Login" placeholder="Password">
+            <a onclick="btnLook('password_Login','img_signIn')"><img src="img/look.png" id="img_signIn" class="btnLook"
+                    alt="eye"></a>
             </br>
             </br>
             </br>
-            <button id="button_Login" onclick="page('logIn','main_menu');">Login</button>
+            <button id="button_Login" onclick="signIn();">Login</button>
             </br>
             </br>
             <a>Don't you have an account?</a><a id="a_Login" onclick="page('logIn','logUp');"> Sign up!</a>
@@ -32,44 +55,45 @@
         </div>
     </section>
 
-    <section id="logUp" class="section invisible">
+    <section id="logUp" class="section">
         <div id="main_logUp">
             <img src="img/logo.png" id="logo_logUp" alt="icon">
+            <img src="img/backBtn.png" id="back" onclick="page('logUp','logIn');" alt="back">
             </br>
-            <input type="text" id="input_LogUp" placeholder="Username">
-            </br>
-            </br>
-            <input type="password" id="input_LogUp" placeholder="Password">
+            <input type="text" id="user_LogUp" placeholder="Username">
             </br>
             </br>
-            <input type="password" id="input_LogUp" placeholder="Confirm password">
+            <input type="password" id="password1_LogUp" class="password_logUp" placeholder="Password">
+            <a onclick="btnLook('password1_LogUp','img_LogUp1');btnLook('password2_LogUp','img_LogUp1');"><img
+                    src="img/look.png" id="img_LogUp1" class="btnLook" alt="eye"></a>
             </br>
             </br>
-            <input type="password" id="input_LogUp" placeholder="Email">
+            <input type="password" id="password2_LogUp" placeholder="Confirm password">
             </br>
             </br>
-            <input type="password" id="input_LogUp" placeholder="Device ID">
+            <input type="text" id="email_LogUp" placeholder="Email">
             </br>
             </br>
-            <button id="button_LogUp" onclick="page('logUp','logIn');">Sign up</button>
+            <input type="text" id="device_id_LogUp" placeholder="Device ID">
+            </br>
+            </br>
+            <button id="button_LogUp" onclick="signUp();">Sign up</button>
         </div>
     </section>
 
-    <section id="recoveryAccount" class="section invisible">
+    <section id="recoveryAccount" class="section">
         <div id="main_recoveryAccount">
             <img src="img/logo.png" id="logo_recoveryAccount" alt="icon">
-            </br>
-            <input type="text" id="input_recoveryAccount" placeholder="Username">
-            </br>
+            <img src="img/backBtn.png" id="back" onclick="page('recoveryAccount','logIn');" alt="back">
             </br>
             <input type="text" id="input_recoveryAccount" placeholder="Email">
             </br>
             </br>
-            <button id="button_recoveryAccount" onclick="page('recoveryAccount','logIn');">Submit</button>
+            <button id="button_recoveryAccount" onclick="passwordRecovery();">Submit</button>
         </div>
     </section>
 
-    <section id="main_menu" class="section invisible">
+    <section id="main_menu" class="section">
         <div id="mySidenav_main_menu" class="sidenav">
             <img src="img/icon white.png" id="menu-icon" alt="logo-white">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav('main_menu')">&times;</a>
@@ -79,22 +103,22 @@
             <span class="span_sidenav" onclick="page('main_menu','schedules'); closeNav('main_menu');">Schedules</span>
             <div class="line_menu"></div>
             <span class="span_sidenav" onclick="page('main_menu','about_us'); closeNav('main_menu');">About us</span>
-            <span class="span_sidenav" onclick="page('main_menu','logIn'); closeNav('main_menu');">Log out</span>
+            <span class="span_sidenav" onclick="closeNav('main_menu');logOut();">Log out</span>
         </div>
         <div id="main_main_menu">
             <img src="img/logo.png" id="logo_index" alt="icon">
             <div class="div_span_index">
-                <span class="span_index">In this moment your feeder has: 15.4gr</span>
+                <span id="span_feeder_has" class="span_index">In this moment your feeder has: 15.4gr</span>
             </div>
             <div class="div_span_index">
-                <span class="span_index">Last food: Today at 08:00</span>
+                <span id="span_last_food" class="span_index">Last food: Today at 08:00</span>
             </div>
-            <button type="button" class="btn btnFeed btn-secondary" onclick="send();">Feed</button>
+            <button type="button" class="btn btnFeed btn-secondary" onclick="send();saveFood('50');">Feed</button>
             <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('main_menu');" alt="Menu">
         </div>
     </section>
 
-    <section id="schedules" class="section invisible">
+    <section id="schedules" class="section">
         <div id="mySidenav_schedules" class="sidenav">
             <img src="img/icon white.png" id="menu-icon" alt="logo-white">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav('schedules')">&times;</a>
@@ -110,27 +134,35 @@
             <img src="img/logo.png" id="logo_schedules" alt="icon">
             <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('schedules');" alt="Menu">
             <span class="span_title_schedules">Feeding schedules</span>
-            <div class="div_top_schedules div_span_schedules">
-                <img src="img/deleteBtn.png" alt="delete" class="deleteBtn">
-                <span class="span_schedules">08:00 - 20gr</span>
-            </div>
-            <div class="div_span_schedules">
-                <img src="img/deleteBtn.png" alt="delete" class="deleteBtn">
-                <span class="span_schedules">12:00 - 10gr</span>
-            </div>
-            <div class="div_span_schedules">
-                <img src="img/deleteBtn.png" alt="delete" class="deleteBtn">
-                <span class="span_schedules">18:00 - 20gr</span>
-            </div>
-            <div class="line_schedule"> </div>
+
+            <div id="schedulesCards"></div>
+
+            <div class="line_schedule"></div>
+
             <div class="add_div div_span_schedules">
-                <img src="img/addBtn.png" alt="add" class="deleteBtn">
-                <span class="span_schedules">Add other schedule</span>
+                <img src="img/addBtn.png" alt="add" class="addBtn">
+                <a href="#popup1" class="span_schedules">Add other schedule</a>
             </div>
+
+            <div id="popup1" class="overlay">
+                <div class="popup">
+                    <h2>Input</h2>
+                    <a class="close" onclick="addSchedule();" href="#">&times;</a>
+                    <div class="content">
+                        <span>Add the hour:</span>
+                        <input type="text" id="time" placeholder="Ejm: 14:00" required>
+                        </br>
+                        </br>
+                        <span>Add the quantity of food (grams):</span>
+                        <input type="text" id="food" placeholder="Ejm: 50" required>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section id="stadistics" class="section invisible">
+    <section id="stadistics" class="section">
         <div id="mySidenav_stadistics" class="sidenav">
             <img src="img/icon white.png" id="menu-icon" alt="logo-white">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav('stadistics')">&times;</a>
@@ -147,22 +179,23 @@
             <img src="img/logo.png" id="logo_schedules" alt="icon">
             <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('stadistics');" alt="Menu">
             <canvas id="stadistics_graph"></canvas>
-            <div class="radio-top form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <div class="radio-top form-check" onclick="stadisticsForDays();">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+                    checked>
                 <label class="form-check-label" for="exampleRadios1">
-                  For days
+                    For days
                 </label>
-              </div>
-              <div class="form-check">
+            </div>
+            <div class="form-check" onclick="stadisticsForMonths();">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
                 <label class="form-check-label" for="exampleRadios2">
-                  For months
+                    For months
                 </label>
-              </div>
+            </div>
         </div>
     </section>
 
-    <section id="about_us" class="section invisible">
+    <section id="about_us" class="section">
         <div id="mySidenav_about_us" class="sidenav">
             <img src="img/icon white.png" id="menu-icon" alt="logo-white">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav('about_us')">&times;</a>
@@ -203,11 +236,34 @@
         </div>
     </section>
 
+    <section id="charge" class="invisible">
+        <div id="charge-div">
+            <img src="img/logo.png" alt="icon_charge" id="charge-icon">            
+            <div id="charge_point" class="spinner-grow text-light" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-light" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-light" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </section>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="js/main.js"></script>
-
-
+    <script src="js/auth.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
