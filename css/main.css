@@ -10,6 +10,33 @@ html,body{
     padding-top: 32%;
 }
 
+#charge{
+    position: relative;
+}
+
+#charge-icon{
+    width: 151%;
+    margin-left: -33%;
+    margin-top: -32%;
+}
+
+#charge-div{
+    background: #FCC4A7;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    padding-top: 45%;
+    padding-left: 15%;
+    top: 0%;
+    left: 0%;
+    z-index: 3;
+}
+
+#charge_point{
+    margin-left: 26%;
+    margin-top: 24%;
+}
+
 .form-check {
     width: 50%;
     text-align: left;

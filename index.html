@@ -14,7 +14,6 @@
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-storage.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#config-web-app -->
     <script>
@@ -109,12 +108,12 @@
         <div id="main_main_menu">
             <img src="img/logo.png" id="logo_index" alt="icon">
             <div class="div_span_index">
-                <span class="span_index">In this moment your feeder has: 15.4gr</span>
+                <span id="span_feeder_has" class="span_index">In this moment your feeder has: 15.4gr</span>
             </div>
             <div class="div_span_index">
-                <span class="span_index">Last food: Today at 08:00</span>
+                <span id="span_last_food" class="span_index">Last food: Today at 08:00</span>
             </div>
-            <button type="button" class="btn btnFeed btn-secondary">Feed</button>
+            <button type="button" class="btn btnFeed btn-secondary" onclick="saveFood('50');">Feed</button>
             <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('main_menu');" alt="Menu">
         </div>
     </section>
@@ -180,14 +179,14 @@
             <img src="img/logo.png" id="logo_schedules" alt="icon">
             <img src="img/MenuBtn.png" id="btnMenu" onclick="openNav('stadistics');" alt="Menu">
             <canvas id="stadistics_graph"></canvas>
-            <div class="radio-top form-check">
+            <div class="radio-top form-check" onclick="stadisticsForDays();">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
                     checked>
                 <label class="form-check-label" for="exampleRadios1">
                     For days
                 </label>
             </div>
-            <div class="form-check">
+            <div class="form-check" onclick="stadisticsForMonths();">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
                 <label class="form-check-label" for="exampleRadios2">
                     For months
@@ -238,8 +237,15 @@
     </section>
 
     <section id="charge" class="invisible">
-        <div id="div_charge">
-            <div class="spinner-border text-light" id="spinner" role="status">
+        <div id="charge-div">
+            <img src="img/logo.png" alt="icon_charge" id="charge-icon">            
+            <div id="charge_point" class="spinner-grow text-light" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-light" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-light" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
         </div>

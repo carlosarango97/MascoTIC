@@ -1,6 +1,5 @@
 const auth=firebase['auth']();
 const db=firebase['firestore']();
-const storage=firebase['storage']();
 
 function signUp() {
     // Get user info Form    
@@ -16,11 +15,15 @@ function signUp() {
         auth.createUserWithEmailAndPassword(email, password1).then(function (data) {
             const userUid = data.user.uid;
             var account = null;
+            let feederVal = "N/A";
+            let lastFood = feederVal;
             // Set account  doc  
             account = {
                 userId: userUid,
                 username: username,
-                deviceID: deviceId
+                deviceID: deviceId,
+                feeder: feederVal,
+                food: lastFood
             }
 
             db.collection('accounts').doc(emailUser).set(account).then(function () {
@@ -55,13 +58,13 @@ function signUp() {
 }
 
 function signIn() {
-
+    charge(true);
     // Get user info
     var email = document.getElementById("email_Login").value.toLowerCase();
     const password = document.getElementById("password_Login").value;
 
 
-    // Sing up the user
+    // Sign up the user
 
     auth.signInWithEmailAndPassword(email, password).then(function (data) {
         const userUid = email;
@@ -69,13 +72,21 @@ function signIn() {
             document.getElementById("email_Login").value = "";
             document.getElementById("password_Login").value = "";
             page('logIn','main_menu');
+            db.collection('accounts').doc(userUid).get().then(snap => {
+                localStorage.setItem('DeviceID',snap.data().deviceID);
+                localStorage.setItem('userID',userUid);
+                updateTimes(userUid); 
+                stadisticsForDays();               
+            });
         } else {
             alert("Verify your email!");
+            charge(false);
         }
 
     }).catch(function (error) {
         console.log(error.message);
-        alert("The user or password isn't correct! :(");
+        charge(false);
+        alert("The user or password aren't correct! :(");
 
     });
     return false;
