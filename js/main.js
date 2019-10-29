@@ -217,10 +217,17 @@ function stadisticsForDays(){
     let day = parseInt(date.getDate());
     for(let i = 0; i<6; i++){
         firebase.database().ref("Alimentacion/" + device + "/" + month + "/" + day).once('value').then(function (snapshot) {
-            firebase.database().ref("Alimentacion/" + device + "/stads/i" + i).set({
-                x: (day+6) + "/" + (date.getMonth()+1),
-                val: snapshot.val()
-            });
+            if(snapshot.exists()){
+                firebase.database().ref("Alimentacion/" + device + "/stads/i" + i).set({
+                    x: (day+6) + "/" + (date.getMonth()+1),
+                    val: snapshot.val()
+                });
+            }else{                
+                firebase.database().ref("Alimentacion/" + device + "/stads/i" + i).set({
+                    x: (day+6) + "/" + (date.getMonth()+1),
+                    val: 0
+                });
+            }
             day--;
         });        
         day--;
@@ -279,10 +286,17 @@ function stadisticsForMonths(){
     let device = localStorage.getItem("DeviceID");
     for(let i = 0; i<6; i++){
         firebase.database().ref("Alimentacion/" + device + "/" + (date.getMonth()+1-i) + "a" + date.getFullYear() + "/count").once('value').then(function (snapshot) {
-            firebase.database().ref("Alimentacion/" + device + "/stads/i" + i).set({
-                x: (date.getMonth()+1-i) + "/" + date.getFullYear(),
-                val: snapshot.val()
-            });
+            if(snapshot.exists()){
+                firebase.database().ref("Alimentacion/" + device + "/stads/i" + i).set({
+                    x: (date.getMonth()+1-i) + "/" + date.getFullYear(),
+                    val: snapshot.val()
+                });
+            }else{
+                firebase.database().ref("Alimentacion/" + device + "/stads/i" + i).set({
+                    x: (date.getMonth()+1-i) + "/" + date.getFullYear(),
+                    val: 0
+                });
+            }
         });    
     }
     firebase.database().ref("Alimentacion/" + device + "/stads").once('value').then(function (snap) {
