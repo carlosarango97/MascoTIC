@@ -32,18 +32,20 @@ function closeNav(section) {
 }
 
 function send(){
-	const url = 'http://192.168.1.180'
-	const http = new XMLHttpRequest()
+    firebase.database().ref("Servidor").once('value').then(function (snapshot) {
+        const url = 'http://' + snapshot.val();
+        const http = new XMLHttpRequest()
 
-	http.open("GET", url)
-	http.onreadystatechange = function(){
+        http.open("GET", url)
+        http.onreadystatechange = function(){
 
-		if(this.readyState == 4 && this.status == 200){
-			var resultado = JSON.parse(this.responseText)
-			console.log(resultado.name)
-		}
-	}
-	http.send()
+            if(this.readyState == 4 && this.status == 200){
+                var resultado = JSON.parse(this.responseText)
+                console.log(resultado.name)
+            }
+        }
+        http.send();
+    });	
 }	
 
 // var Chart = require('chart.js');
