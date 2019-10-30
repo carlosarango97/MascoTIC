@@ -45,7 +45,7 @@ function send(){
             }
         }
         http.send();
-    });	
+    });
 }	
 
 // var Chart = require('chart.js');
@@ -114,10 +114,16 @@ function addSchedul() {
 }
 
 function addSchedule() {
-
+    var flag = 0;
     var food = document.getElementById('food').value;
-    var time = document.getElementById('time').value;
-
+    while(flag=0){
+        var time = document.getElementById('time').value;
+        if(time.split()[0]>24 || time.split()[0]<0 || time.split()[1]>60 || time.split()[1]<0)
+            alert("Incorrect values")
+        else
+            flag=1;
+    }
+    flag=0;
     var div = document.createElement("div");
     
     div.classList.add("div_top_schedules");
@@ -138,15 +144,18 @@ function addSchedule() {
     document.getElementById('food').value = "";
     document.getElementById('time').value = "";
 
-    manageSchedules(time)
+    manageSchedules(time.split(":"))
 } 
 
 function manageSchedules(time){
 
     //year, month 0-11, date, hour, min (can add ,sec,msec)
     var now = new Date();
-    var eta_ms = new Date(now.getFullYear(), now.getMonth(), now.getDate(), time, 0) - now;
-    //var eta_ms = new Date(2019, 9, 29, time, 0).getTime() - Date.now();
+    var day = now.getDate;
+    if(now.getHours()>time[0])
+        day++;
+    
+    var eta_ms = new Date(now.getFullYear(), now.getMonth(), day, time[0], time[1]) - now;
     var timeout = setTimeout(function(){firebase.database().ref("Servidor").once('value').then(function (snapshot) {
         const url = 'http://' + snapshot.val();
         const http = new XMLHttpRequest()
