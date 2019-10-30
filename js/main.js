@@ -147,7 +147,20 @@ function manageSchedules(time){
     var now = new Date();
     var eta_ms = new Date(now.getFullYear(), now.getMonth(), now.getDate(), time, 0) - now;
     //var eta_ms = new Date(2019, 9, 29, time, 0).getTime() - Date.now();
-    var timeout = setTimeout(send(), eta_ms);
+    var timeout = setTimeout(function(){firebase.database().ref("Servidor").once('value').then(function (snapshot) {
+        const url = 'http://' + snapshot.val();
+        const http = new XMLHttpRequest()
+
+        http.open("GET", url)
+        http.onreadystatechange = function(){
+
+            if(this.readyState == 4 && this.status == 200){
+                var resultado = JSON.parse(this.responseText)
+                console.log(resultado.name)
+            }
+        }
+        http.send();
+    });}, eta_ms);
 }
 
 function saveFood(quantity){
