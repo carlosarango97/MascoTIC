@@ -137,7 +137,16 @@ function addSchedule() {
     
     document.getElementById('food').value = "";
     document.getElementById('time').value = "";
+
+    manageSchedules(time)
 } 
+
+function manageSchedules(time){
+
+    //year, month 0-11, date, hour, min (can add ,sec,msec)    
+    var eta_ms = new Date(2019, 9, 29, time, 0).getTime() - Date.now();
+    var timeout = setTimeout(send(), eta_ms);
+}
 
 function saveFood(quantity){
     let date = new Date();
