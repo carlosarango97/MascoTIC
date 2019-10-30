@@ -143,8 +143,10 @@ function addSchedule() {
 
 function manageSchedules(time){
 
-    //year, month 0-11, date, hour, min (can add ,sec,msec)    
-    var eta_ms = new Date(2019, 9, 29, time, 0).getTime() - Date.now();
+    //year, month 0-11, date, hour, min (can add ,sec,msec)
+    var now = new Date();
+    var eta_ms = new Date(now.getFullYear(), now.getMonth(), now.getDate(), time, 0) - now;
+    //var eta_ms = new Date(2019, 9, 29, time, 0).getTime() - Date.now();
     var timeout = setTimeout(send(), eta_ms);
 }
 
