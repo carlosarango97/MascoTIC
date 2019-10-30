@@ -114,16 +114,17 @@ function addSchedul() {
 }
 
 function addSchedule() {
-    var flag = 0;
+    //var flag = 0;
     var food = document.getElementById('food').value;
-    while(flag=0){
+    //var time;
+    //while(flag=0){
         var time = document.getElementById('time').value;
-        if(time.split()[0]>24 || time.split()[0]<0 || time.split()[1]>60 || time.split()[1]<0)
-            alert("Incorrect values")
-        else
-            flag=1;
-    }
-    flag=0;
+        //if(time.split()[0]>24 || time.split()[0]<0 || time.split()[1]>60 || time.split()[1]<0)
+            //alert("Incorrect values")
+        //else
+            //flag=1;
+    //}
+    
     var div = document.createElement("div");
     
     div.classList.add("div_top_schedules");
