@@ -32,20 +32,45 @@ function closeNav(section) {
 }
 
 function send(){
-    firebase.database().ref("Servidor").once('value').then(function (snapshot) {
-        const url = 'http://' + snapshot.val();
-        const http = new XMLHttpRequest()
+	firebase.database().ref("Servidor").once('value').then(function (snapshot) {
+		const url = 'http://' + snapshot.val();
+		const http = new XMLHttpRequest()
 
-        http.open("GET", url)
-        http.onreadystatechange = function(){
+		http.open("GET", url)
+		http.onreadystatechange = function(){
 
-            if(this.readyState == 4 && this.status == 200){
-                var resultado = JSON.parse(this.responseText)
-                console.log(resultado.name)
-            }
-        }
-        http.send();
-    });
+			if(this.readyState == 4 && this.status == 200){
+				var resultado = JSON.parse(this.responseText)
+				console.log(resultado.name)
+			}
+		}
+		http.send();
+		alert('DONE');
+	});
+}	
+
+function send(gramos){
+	var numPeticiones = Math.round(gramos/15);
+	for (let i = 0; i<numPeticiones; i++) {
+		firebase.database().ref("Servidor").once('value').then(function (snapshot) {
+			const url = 'http://' + snapshot.val();
+			const http = new XMLHttpRequest()
+
+			http.open("GET", url)
+			http.onreadystatechange = function(){
+
+				if(this.readyState == 4 && this.status == 200){
+					var resultado = JSON.parse(this.responseText)
+					console.log(resultado.name)
+				}
+			}
+			http.send();
+			alert('DONE');
+		});
+		setTimeout(function(){
+			console.log("THIS IS");
+		}, 8000);
+	}
 }	
 
 // var Chart = require('chart.js');
