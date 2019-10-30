@@ -156,21 +156,22 @@ function manageSchedules(time){
     if(now.getHours()>time[0])
         day++;
     
-    var eta_ms = new Date(now.getFullYear(), now.getMonth(), day, time[0], time[1]) - now;
-    var timeout = setTimeout(function(){firebase.database().ref("Servidor").once('value').then(function (snapshot) {
-        const url = 'http://' + snapshot.val();
-        const http = new XMLHttpRequest()
-
-        http.open("GET", url)
-        http.onreadystatechange = function(){
-
-            if(this.readyState == 4 && this.status == 200){
-                var resultado = JSON.parse(this.responseText)
-                console.log(resultado.name)
+    setTimeout(function(){var eta_ms = new Date(now.getFullYear(), now.getMonth(), day, time[0], time[1]) - now;
+        var timeout = setTimeout(function(){firebase.database().ref("Servidor").once('value').then(function (snapshot) {
+            const url = 'http://' + snapshot.val();
+            const http = new XMLHttpRequest()
+    
+            http.open("GET", url)
+            http.onreadystatechange = function(){
+    
+                if(this.readyState == 4 && this.status == 200){
+                    var resultado = JSON.parse(this.responseText)
+                    console.log(resultado.name)
+                }
             }
-        }
-        http.send();
-    });}, eta_ms);
+            http.send();
+        });}, eta_ms);},500);
+    
 }
 
 function saveFood(quantity){
